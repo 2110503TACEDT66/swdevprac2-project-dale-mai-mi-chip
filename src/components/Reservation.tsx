@@ -1,10 +1,26 @@
+import Card from "./ui/Card";
+
 export default function Reservation() {
   return (
-    <div
-      className="5xl text-white h-[100vh] items-center justify-center flex"
-      id="myreservation"
-    >
-      Reservation
+    <div className="px-10 h-[190vh] bg-white">
+      <div
+        className="text-8xl font-bold  5xl text-black  py-[20vh] text-end flex flex-col"
+        id="myreservation"
+      >
+        <div className="">WELCOME,</div>
+        <div className="mt-5">USER</div>
+        <div className="mt-5">TO OUR SERVICES</div>
+      </div>
+      <div className="">
+        <div className="text-4xl font-bold text-black">OUR SERVICES</div>
+        <div className="mt-10 flex flex-row gap-10">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
     </div>
   );
 }
