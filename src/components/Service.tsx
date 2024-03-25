@@ -3,7 +3,7 @@ import { SwipeCarousel } from "./ui/SwipeCarousel";
 
 export default function Service() {
   return (
-    <div className=" px-10 h-[190vh]">
+    <div className=" px-10 h-[200vh]">
       <div
         className="text-8xl font-bold  5xl text-black  py-[20vh] text-end flex flex-col"
         id="ourservices"
