@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import Image from "next/image";
 
 const imgs = [
-  "./images.jpg",
-  "./images.jpg",
-  "./images.jpg",
-  "./images.jpg",
-  "./images.jpg",
+  "../img/images.jpg",
+  "../img/images.jpg",
+  "../img/images.jpg",
+  "../img/images.jpg",
+  "../img/images.jpg",
 ];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
-const DRAG_BUFFER = 100;
 
 const SPRING_OPTIONS = {
   type: "spring",
@@ -55,49 +55,48 @@ export const SwipeCarousel = () => {
     };
   }, [imgIndex, dragX, imgs.length]);
 
-  const onDragEnd = () => {
-    const x = dragX.get();
-
-    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
-      setImgIndex((pv) => pv + 1);
-    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
-    }
-  };
-
   return (
-    <div className="relative overflow-hidden py-8 bg-white px-2">
+    <div className="relative overflow-hidden py-8 px-2">
       <motion.div
         style={{
           x: dragX,
         }}
         animate={{
           translateX: `${
-            imgIndex === imgs.length - 1
-              ? `calc(-${imgIndex * 10}vh - 10%)` // Adding extra translation for the last image
-              : `-${imgIndex * 10}vh`
+            `calc(-${imgIndex * 30}vh )` // Adding extra translation for the last image
           }`,
         }}
         transition={SPRING_OPTIONS}
-        onDragEnd={onDragEnd}
-        className="flex items-center hover:cursor-pointer"
+        className="flex items-center hover:cursor-pointer "
       >
         {imgs.map((imgSrc, idx) => {
           return (
             <motion.div
               key={idx}
               style={{
-                backgroundImage: `url(${imgSrc})`,
-                width: `${imgs.length * 10}vh`,
-                height: "65vh",
+                width: `${imgs.length * 12}vh`,
+                height: "60vh",
                 backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
               }}
               animate={{
                 scale: imgIndex === idx ? 0.95 : 0.85,
               }}
               transition={SPRING_OPTIONS}
-              className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover h-20"
-            />
+              className="aspect-video w-screen shrink-0 rounded-[5vh] bg-black object-cover flex flex-col items-center justify-center"
+            >
+              <img
+                src={imgSrc}
+                alt="image"
+                className="w-[45vh] h-[30vh] rounded-3xl"
+              />
+              <h1 className="text-2xl mt-5">Thai Massage</h1>
+              <p className="p-5 text-center">
+                We are a fully licensed Spa & Thai massage located in Bangkok.
+                We provide full Thai body massage services ranging from foot
+                massage,
+              </p>
+            </motion.div>
           );
         })}
       </motion.div>
@@ -115,7 +114,6 @@ export const SwipeCarousel = () => {
           );
         })}
       </div>
-      <div className=""></div>
     </div>
   );
 };
