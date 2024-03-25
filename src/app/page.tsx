@@ -11,8 +11,8 @@ export default function Home() {
       <Hero />
       {/* <Reservation /> */}
       <Service />
-      <FeedBacks />
       <FunFacts />
+      <FeedBacks />
       <About />
     </main>
   );
