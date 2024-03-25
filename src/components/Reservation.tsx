@@ -1,4 +1,6 @@
+"use client";
 import Card from "./ui/Card";
+import { SwipeCarousel } from "./ui/SwipeCarousel";
 
 export default function Reservation() {
   return (
@@ -13,12 +15,9 @@ export default function Reservation() {
       </div>
       <div className="">
         <div className="text-4xl font-bold text-black">OUR SERVICES</div>
-        <div className="mt-10 flex flex-row gap-10">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <div className="mt-10 flex justify-center items-center">
+          {" "}
+          <SwipeCarousel />{" "}
         </div>
       </div>
     </div>
