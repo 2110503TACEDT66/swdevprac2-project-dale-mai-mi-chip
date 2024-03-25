@@ -11,7 +11,7 @@ const imgs = [
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
-const DRAG_BUFFER = 50;
+const DRAG_BUFFER = 100;
 
 const SPRING_OPTIONS = {
   type: "spring",
@@ -39,8 +39,21 @@ export const SwipeCarousel = () => {
       }
     }, AUTO_DELAY);
 
-    return () => clearInterval(intervalRef);
-  }, []);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft" && imgIndex > 0) {
+        setImgIndex((pv) => pv - 1);
+      } else if (event.key === "ArrowRight" && imgIndex < imgs.length - 1) {
+        setImgIndex((pv) => pv + 1);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      clearInterval(intervalRef);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [imgIndex, dragX, imgs.length]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -53,22 +66,21 @@ export const SwipeCarousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden py-8 bg-white">
+    <div className="relative overflow-hidden py-8 bg-white px-2">
       <motion.div
-        drag="x"
-        dragConstraints={{
-          left: 0,
-          right: 0,
-        }}
         style={{
           x: dragX,
         }}
         animate={{
-          translateX: `-${imgIndex * 10}vh`,
+          translateX: `${
+            imgIndex === imgs.length - 1
+              ? `calc(-${imgIndex * 10}vh - 10%)` // Adding extra translation for the last image
+              : `-${imgIndex * 10}vh`
+          }`,
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing"
+        className="flex items-center hover:cursor-pointer"
       >
         {imgs.map((imgSrc, idx) => {
           return (
@@ -77,7 +89,7 @@ export const SwipeCarousel = () => {
               style={{
                 backgroundImage: `url(${imgSrc})`,
                 width: `${imgs.length * 10}vh`,
-                height: "50vh",
+                height: "65vh",
                 backgroundPosition: "center",
               }}
               animate={{
@@ -103,6 +115,7 @@ export const SwipeCarousel = () => {
           );
         })}
       </div>
+      <div className=""></div>
     </div>
   );
 };
