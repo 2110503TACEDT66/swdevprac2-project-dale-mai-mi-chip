@@ -1,11 +1,10 @@
 "use client";
 
-import { registerLink } from "@/constant/link.constant";
 import { navContents } from "@/constant/nav.constant";
-import Link from "next/link";
 import homeIcon from "public/img/home.png";
 import unknown from "public/img/unknown.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const handleClick = (
@@ -46,9 +45,11 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center mr-5">
-          <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
-            Book NOW
-          </button>
+          <Link href={"/reservation"}>
+            <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+              Book NOW
+            </button>
+          </Link>
           <Image
             src={unknown}
             alt="Home Icon"
