@@ -45,9 +45,9 @@ export default function Service() {
           className="text-8xl font-bold  5xl text-black  py-[20vh] text-end flex flex-col"
           id="ourservices"
         >
-          <div className="">WELCOME,</div>
-          <div className="mt-5">USER</div>
-          <div className="mt-5">TO OUR SERVICES</div>
+          <div className="shadow-2xl">WELCOME,</div>
+          <div className="mt-2 shadow-2xl">USER</div>
+          <div className="mt-2 shadow-2xl">TO OUR SERVICES</div>
         </div>
       </motion.div>
       <motion.div

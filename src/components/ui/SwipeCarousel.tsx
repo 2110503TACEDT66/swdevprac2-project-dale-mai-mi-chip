@@ -68,7 +68,7 @@ export const SwipeCarousel = () => {
           }`,
         }}
         transition={SPRING_OPTIONS}
-        className="flex items-center hover:cursor-pointer "
+        className="flex items-center hover:cursor-pointer"
       >
         {imgs.map((imgSrc, idx) => {
           return (
@@ -84,18 +84,17 @@ export const SwipeCarousel = () => {
                 scale: imgIndex === idx ? 0.95 : 0.85,
               }}
               transition={SPRING_OPTIONS}
-              className="aspect-video w-screen shrink-0 rounded-[5vh] bg-black object-cover flex flex-col items-center justify-center"
-            >
+              className="aspect-video w-screen shrink-0 rounded-[5vh] bg-black object-cover flex flex-col items-center justify-center "
+            > 
               <img
                 src={imgSrc}
                 alt="image"
                 className="w-[45vh] h-[30vh] rounded-3xl"
               />
-              <h1 className="text-2xl mt-5">Thai Massage</h1>
-              <p className="p-5 text-center">
-                We are a fully licensed Spa & Thai massage located in Bangkok.
-                We provide full Thai body massage services ranging from foot
-                massage,
+              <h1 className="text-2xl mt-5 text-white">Thai Massage</h1>
+              <p className="p-5 text-center text-white">
+              Thai massage is a great therapy if you're feeling worn out, stressed out, 
+              and in need of energy to uplift your mind, body, and spirit.
               </p>
             </motion.div>
           );
