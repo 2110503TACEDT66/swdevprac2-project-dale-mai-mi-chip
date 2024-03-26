@@ -1,7 +1,7 @@
 import backIcon from "public/img/back.png";
 import Image from "next/image";
 
-export default function SignIn() {
+export default function Register() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-subPageStart to-subPageEnd">
       <div className="flex justify-start items-start">
