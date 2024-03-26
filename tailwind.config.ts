@@ -16,6 +16,8 @@ const config: Config = {
       colors: {
         customOrangeStart: '#FF7A00',
         customOrangeEnd: '#FFDEB6',
+        subPageStart : '#ff423a',
+        subPageEnd : '#fec338'
       }, // Added missing curly brace
     }, // Added missing curly brace
   },
