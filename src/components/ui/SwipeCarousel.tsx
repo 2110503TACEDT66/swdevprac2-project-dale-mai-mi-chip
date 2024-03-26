@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
-  "../img/images.jpg",
-  "../img/images.jpg",
-  "../img/images.jpg",
-  "../img/images.jpg",
-  "../img/images.jpg",
+  "../img/bodyscrub.jpg",
+  "../img/facemask.jpg",
+  "../img/hotoilmassage.jpg",
+  "../img/thaicompress.jpg",
+  "../img/thaimassage.jpg",
 ];
 
 const ONE_SECOND = 1000;
