@@ -7,6 +7,7 @@ export interface MassageShop {
   opentime : string,
   closetime : string,
   data : string
+  reservations : Array<string>
 }
 
 export interface HospitalJson {

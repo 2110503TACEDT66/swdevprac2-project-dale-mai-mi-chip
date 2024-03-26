@@ -59,6 +59,21 @@ export default function Navbar() {
             </Link>
           )}
         </div>
+        <div className="flex items-center mr-[10vw]">
+          {session ? (
+            <Link href={"/massageshops"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Massage Shop
+              </button>
+            </Link>
+          ) : (
+            <Link href={"/api/auth/signin"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Book NOW
+              </button>
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );
