@@ -1,8 +1,7 @@
 "use client";
-
 import { navContents } from "@/constant/nav.constant";
 import homeIcon from "public/img/home.png";
-import unknown from "public/img/unknown.png";
+// import Login from "./Login";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,20 +43,12 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-        <div className="flex items-center mr-5">
+        <div className="flex items-center mr-[10vw]">
           <Link href={"/reservation"}>
             <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
               Book NOW
             </button>
           </Link>
-          <Image
-            src={unknown}
-            alt="Home Icon"
-            width={0}
-            height={0}
-            className="w-8 mr-2"
-          />
-          <div className="mr-5 text-black">username</div>
         </div>
       </div>
     </nav>

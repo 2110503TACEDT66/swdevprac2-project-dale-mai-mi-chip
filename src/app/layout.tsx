@@ -1,7 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Login from "@/components/Login";
 import Navbar from "@/components/Navbar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import NextAuthProvider from "@/providers/NextAuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,15 +19,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const nexAuthSession = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col">
-          <div className="z-50 w-full fixed ">
-            <Navbar />
+        <NextAuthProvider session={nexAuthSession}>
+          <div className="flex flex-col">
+            <div className="z-50 w-full fixed ">
+              <Navbar />
+            </div>
+            <div className="absolute z-50 mt-3 right-5">
+              <Login />
+            </div>
+
+            <div className="z-0 mt-10">{children}</div>
           </div>
-          <div className="z-0 mt-10">{children}</div>
-        </div>
+        </NextAuthProvider>
       </body>
     </html>
   );
