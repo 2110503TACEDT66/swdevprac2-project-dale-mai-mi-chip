@@ -1,11 +1,14 @@
 "use client";
 import { navContents } from "@/constant/nav.constant";
-import homeIcon from "public/img/home.png";
-// import Login from "./Login";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
+  const { data: session } = useSession();
+  const [link, setLink] = useState("");
+
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     path: string
@@ -26,7 +29,7 @@ export default function Navbar() {
             onClick={(event) => handleClick(event, "#home")}
           >
             <Image
-              src={homeIcon}
+              src={"/img/home.png"}
               alt="Home Icon"
               width={0}
               height={0}
@@ -44,11 +47,19 @@ export default function Navbar() {
           ))}
         </div>
         <div className="flex items-center mr-[10vw]">
-          <Link href={"/reservation"}>
-            <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
-              Book NOW
-            </button>
-          </Link>
+          {session ? (
+            <Link href={"/reservation"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Book NOW
+              </button>
+            </Link>
+          ) : (
+            <Link href={"/api/auth/signin"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Book NOW
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>
