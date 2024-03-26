@@ -3,6 +3,7 @@ import { MassageShop } from "../../../interface";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import getUserProfile from "@/lib/getUserProfile";
+import Link from "next/link";
 
 export default async function MassageShop() {
   const session = await getServerSession(authOptions);
@@ -16,16 +17,17 @@ export default async function MassageShop() {
         All MassageShop
       </div>
       {massageShops.data.map((massageShop: MassageShop) => (
-        <div
-          className="flex flex-row gap-10 text-black text-md "
-          key={massageShop.name}
-        >
-          <div>{massageShop.name}</div>
-          <div>{massageShop.address}</div>
-          <div>{massageShop.opentime}</div>
-          <div>{massageShop.closetime}</div>
-          <div>{massageShop.tel}</div>
-          {/* {role === "admin" && (
+        <Link href={`/massageShops`}>
+          <div
+            className="flex flex-row gap-10 text-black text-md "
+            key={massageShop.name}
+          >
+            <div>{massageShop.name}</div>
+            <div>{massageShop.address}</div>
+            <div>{massageShop.opentime}</div>
+            <div>{massageShop.closetime}</div>
+            <div>{massageShop.tel}</div>
+            {/* {role === "admin" && (
             <div>
               Reservations:
               <ul>
@@ -35,7 +37,8 @@ export default async function MassageShop() {
               </ul>
             </div>
           )} */}
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );
