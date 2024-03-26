@@ -1,4 +1,4 @@
-export default async function getHospital(id: string) {
+export default async function getMassageShop(id: string) {
   const response = await fetch(
     `http://backendprojectend-env.eba-yfwfbmux.us-east-1.elasticbeanstalk.com/api/v1/massageshops/${id}`
   );

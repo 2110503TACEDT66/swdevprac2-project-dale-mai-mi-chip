@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import NextAuthProvider from "@/providers/NextAuthProvider";
+import ReduxProvider from "@/redux/ReduxProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,18 +24,20 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextAuthProvider session={nexAuthSession}>
-          <div className="flex flex-col">
-            <div className="z-50 w-full fixed ">
-              <Navbar />
-            </div>
-            <div className="absolute z-50 mt-3 right-5">
-              <Login />
-            </div>
+        <ReduxProvider>
+          <NextAuthProvider session={nexAuthSession}>
+            <div className="flex flex-col">
+              <div className="z-50 w-full fixed ">
+                <Navbar />
+              </div>
+              <div className="absolute z-50 mt-3 right-5">
+                <Login />
+              </div>
 
-            <div className="z-0 mt-10">{children}</div>
-          </div>
-        </NextAuthProvider>
+              <div className="z-0 mt-10">{children}</div>
+            </div>
+          </NextAuthProvider>
+        </ReduxProvider>
       </body>
     </html>
   );
