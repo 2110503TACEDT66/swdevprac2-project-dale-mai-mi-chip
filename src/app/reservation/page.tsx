@@ -39,7 +39,7 @@ export default function Reservations() {
   return (
     <main className="fixed flex items-center  flex-col  bg-yellow-100 items-center space-y-10 w-full h-[150vh] ">
       <div className="mt-10 text-black text-center text-5xl font-bold">
-        {}'s Reservation
+        MY Reservation
       </div>
 
       <div className="bg-white p-8 rounded-lg">

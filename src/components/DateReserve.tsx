@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Select, MenuItem } from "@mui/material";
 import { useState } from "react";
 import { Dayjs } from "dayjs";
+import { getSession } from "next-auth/react";
 
 export default function DateReserve({
   onDateChange,
@@ -30,21 +31,26 @@ export default function DateReserve({
           />
         </LocalizationProvider>
       </div>
-      <div className=" w-full">
+      <div
+        className="bg-slate-100 rounded-lg space-x-5 space-y-2
+        w-fit px-10 py-5 flex flex-row justify-center"
+      >
         <Select
           variant="standard"
           name="location"
           id="location"
-          className="h-[2em] w-[200px] "
           value={location}
           onChange={(e) => {
             setLocation(e.target.value);
             onLocationChange(e.target.value);
           }}
+          className="h-[2em] w-[200px]"
         >
-          <MenuItem value="Chula">Chulalongkorn Hospital</MenuItem>
-          <MenuItem value="Rajavithi">Rajavithi Hospital</MenuItem>
-          <MenuItem value="Thammasat">Thammasat University Hospital</MenuItem>
+          <MenuItem value="KristenHarley">Kristen Harley</MenuItem>
+          <MenuItem value="GarryHahn">Garry Hahn</MenuItem>
+          <MenuItem value="SalvadorDickinson">Salvador Dickinson</MenuItem>
+          <MenuItem value="MayHilpertJr.shop">May Hilpert Jr.</MenuItem>
+          <MenuItem value="FredrickKonopelski">Fredrick Konopelski</MenuItem>
         </Select>
       </div>
     </form>
