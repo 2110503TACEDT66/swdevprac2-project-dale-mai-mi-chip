@@ -1,13 +1,11 @@
 "use client";
 import { navContents } from "@/constant/nav.constant";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
   const { data: session } = useSession();
-  const [link, setLink] = useState("");
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,

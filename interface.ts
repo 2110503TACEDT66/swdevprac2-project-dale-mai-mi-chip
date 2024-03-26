@@ -1,3 +1,5 @@
+import { Dayjs } from "dayjs"
+
 export interface MassageShop {
   name : string,
   address : string,
@@ -5,4 +7,18 @@ export interface MassageShop {
   opentime : string,
   closetime : string,
   data : string
+}
+
+export interface HospitalJson {
+  success: boolean,
+  count: number,
+  pagination: Object,
+  data: MassageShop[]
+}
+
+export interface ReservationItems {
+  name : string,
+  bookingDate : string,
+  bookingLocation : string
+
 }

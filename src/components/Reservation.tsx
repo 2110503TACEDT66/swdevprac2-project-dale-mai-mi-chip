@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Reservation() {
   const controls = useAnimation();
@@ -47,9 +48,11 @@ export default function Reservation() {
             <div className="mt-[-10vh]">FEEL</div>
             <div className="mt-[-10vh]">RELAXED ?</div>
           </div>
-          <button className="flex text-black font-bold text-3xl p-2 bg-white h-[10vh] text-center ml-[15vw] shadow-xl rounded-[5vh]  w-[40%] items-center justify-center">
-            BOOK NOW!
-          </button>
+          <Link href={"/reservation"}>
+            <button className="flex text-black font-bold text-3xl p-2 bg-white h-[10vh] text-center ml-[15vw] shadow-xl rounded-[5vh]  w-[40%] items-center justify-center">
+              BOOK NOW!
+            </button>
+          </Link>
         </div>
       </motion.div>
     </div>

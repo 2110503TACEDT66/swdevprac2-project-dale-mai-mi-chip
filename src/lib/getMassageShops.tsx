@@ -1,9 +1,16 @@
-export default async function getMassageShops() {
+export default async function getMassageShops(token: string) {
   const response = await fetch(
-    "http://backendprojectend-env.eba-yfwfbmux.us-east-1.elasticbeanstalk.com/api/v1/massageshops"
+    "https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/massageShops",
+    {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    }
   );
 
-  if (!response.ok) console.log("Failed to fetch Data");
-
+  if (!response.ok) {
+    throw new Error("Cannot get user profile");
+  }
   return await response.json();
 }
