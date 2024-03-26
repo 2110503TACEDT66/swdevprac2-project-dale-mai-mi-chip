@@ -48,8 +48,7 @@ export default function FunFacts() {
               <div className="w-[100%] bg-white flex flex-row p-5 justify-around items-center rounded-lg ">
                 <img src="/img/cover4.jpg" className="p-3 w-[40%]" />
                 <div className="text-center text-black font-bold">
-                  {" "}
-                  Authentic Thai spa and massage in Phuket, Discover here{" "}
+                  Authentic Thai spa and massage in Phuket, Discover here
                 </div>
               </div>
             </div>
