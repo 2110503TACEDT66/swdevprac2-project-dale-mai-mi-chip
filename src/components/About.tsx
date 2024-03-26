@@ -33,7 +33,15 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="text-black font-bold text-5xl py-20 ">GitHub :</div>
+      <div className="flex justify-center items-center text-black text-2xl font-bold text-5xl py-20 ">
+        GitHub :{" "}
+        <a
+          href="https://github.com/2110503TACEDT66/swdevprac2-project-dale-mai-mi-chip"
+          className="font-light text-xl underline"
+        >
+          https://github.com/2110503TACEDT66/swdevprac2-project-dale-mai-mi-chip
+        </a>
+      </div>
     </div>
   );
 }

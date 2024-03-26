@@ -14,37 +14,43 @@ export default function FunFacts() {
         <div className="text-xl">to know more about massage therapy</div>
       </div>
       <div className="flex flex-row justify-center items-center w-screen text-center p-10 gap-10">
-        <div className="w-[25%] h-[60vh] bg-white flex flex-col ">
+        <div className="w-[25%] h-[60vh] bg-white flex flex-col rounded-lg ">
           <VideoPlayer vdoSrc="/vdo/massage.mp4" isPlaying={playing} />
-          <div className="text-black font-bold p-5 text-center">
-            Massage in Thailand
+          <div className="text-black font-bold p-5 text-center ">
+            The Most Relaxing Unique Deep Tissue Full Body Massage
             <Link href={"https://www.youtube.com/watch?v=Tip_ZMa8oC0"}>
-              <button className="bg-gray-200 p-2 ml-2 text-sm text-gray-500 rounded-3xl">
+              <button className="bg-gray-200 p-2 ml-2 text-sm text-gray-500 rounded-3xl ">
                 {" "}
                 Watch More{" "}
               </button>
             </Link>
           </div>
         </div>
-        <div className="flex flex-col w-[50%]  ">
-          <div className="flex flex-row gap-10">
-            <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%]">
+        <div className="flex flex-col w-[50%] ">
+          <div className="flex flex-row gap-10 ">
+            <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%] rounded-lg ">
               <img src="/img/funfacts1.jpg" className="p-3 w-[80%]" />
               <div className="text-center text-black font-bold">
                 {" "}
                 5 of the Best Massage Techniques to Relieve Stress and Anxiety{" "}
               </div>
             </div>
-            <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%]">
-              <img src="/img/funfacts1.jpg" className="p-3 w-[80%]" />
-              <div className="text-center text-black "> Add detail </div>
+            <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%] rounded-lg ">
+              <img src="/img/cover1.jpg" className="p-3 w-[80%]" />
+              <div className="text-center text-black font-bold">
+                {" "}
+                Types of Massage{" "}
+              </div>
             </div>
           </div>
           <div className="flex flex-col mt-10 ">
             <div className="flex flex-row gap-10">
-              <div className="w-[100%] bg-white flex flex-row p-5 justify-around items-center">
-                <img src="/img/funfacts1.jpg" className="p-3 w-[40%]" />
-                <div className="text-center text-black "> Add detail </div>
+              <div className="w-[100%] bg-white flex flex-row p-5 justify-around items-center rounded-lg ">
+                <img src="/img/cover4.jpg" className="p-3 w-[40%]" />
+                <div className="text-center text-black font-bold">
+                  {" "}
+                  Authentic Thai spa and massage in Phuket, Discover here{" "}
+                </div>
               </div>
             </div>
           </div>
