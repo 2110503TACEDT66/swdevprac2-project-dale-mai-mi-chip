@@ -5,7 +5,7 @@ import { covers } from "@/constant/covers.constant";
 
 export default function Hero() {
   const SECOND = 1000;
-  const AUTO_DELAY = SECOND * 5;
+  const AUTO_DELAY = SECOND * 3;
   const controls = useAnimation();
   const sectionRef = useRef(null);
   const [imgIndex, setImgIndex] = useState<number>(0);
