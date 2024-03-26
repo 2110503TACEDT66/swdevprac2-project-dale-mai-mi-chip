@@ -42,12 +42,12 @@ export default function Service() {
         style={{ opacity: 0, x: 25 }}
       >
         <div
-          className="text-8xl font-bold  5xl text-black  py-[20vh] text-end flex flex-col"
+          className="text-8xl font-bold  5xl text-black  py-[20vh] text-end flex flex-col "
           id="ourservices"
         >
-          <div className="shadow-2xl">WELCOME,</div>
-          <div className="mt-2 shadow-2xl">USER</div>
-          <div className="mt-2 shadow-2xl">TO OUR SERVICES</div>
+          <div className="">WELCOME,</div>
+          <div className="mt-2">USER</div>
+          <div className="mt-2">TO OUR SERVICES</div>
         </div>
       </motion.div>
       <motion.div
