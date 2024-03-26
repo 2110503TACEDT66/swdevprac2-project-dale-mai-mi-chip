@@ -1,13 +1,11 @@
 "use client";
 import { navContents } from "@/constant/nav.constant";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
   const { data: session } = useSession();
-  const [link, setLink] = useState("");
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -51,6 +49,21 @@ export default function Navbar() {
             <Link href={"/reservation"}>
               <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
                 Book NOW
+              </button>
+            </Link>
+          ) : (
+            <Link href={"/api/auth/signin"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Book NOW
+              </button>
+            </Link>
+          )}
+        </div>
+        <div className="flex items-center mr-[10vw]">
+          {session ? (
+            <Link href={"/massageshops"}>
+              <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
+                Massage Shop
               </button>
             </Link>
           ) : (

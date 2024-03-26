@@ -1,6 +1,12 @@
-export default async function getMassageShop(id: string) {
+export default async function getMassageShop(id: string, token: string) {
   const response = await fetch(
-    `http://backendprojectend-env.eba-yfwfbmux.us-east-1.elasticbeanstalk.com/api/v1/massageshops/${id}`
+    `http://localhost:5010/api/v1/massageShops/${id}`,
+    {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   if (!response.ok) throw new Error("Failed to fetch Data");

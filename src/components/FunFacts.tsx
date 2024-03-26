@@ -30,7 +30,10 @@ export default function FunFacts() {
           <div className="flex flex-row gap-10">
             <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%]">
               <img src="/img/funfacts1.jpg" className="p-3 w-[80%]" />
-              <div className="text-center text-black font-bold"> 5 of the Best Massage Techniques to Relieve Stress and Anxiety </div>
+              <div className="text-center text-black font-bold">
+                {" "}
+                5 of the Best Massage Techniques to Relieve Stress and Anxiety{" "}
+              </div>
             </div>
             <div className="w-[100%] bg-white flex flex-col p-5 justify-center items-center h-[40%]">
               <img src="/img/funfacts1.jpg" className="p-3 w-[80%]" />

@@ -33,7 +33,6 @@ export default async function RootLayout({
               <div className="absolute z-50 mt-3 right-5">
                 <Login />
               </div>
-
               <div className="z-0 mt-10">{children}</div>
             </div>
           </NextAuthProvider>
