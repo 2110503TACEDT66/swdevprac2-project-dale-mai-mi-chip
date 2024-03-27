@@ -25,7 +25,6 @@ export default function AddNewReservations() {
   const dispatch = useDispatch<AppDispatch>();
   const createBooking = () => {
     if (bookingDate && bookingLocation) {
-      alert("Reserve!");
       const item: ReservationItems = {
         name: name,
         bookingDate: dayjs(bookingDate).format("YYYY/MM/DD"), // Convert dayjs object to string
