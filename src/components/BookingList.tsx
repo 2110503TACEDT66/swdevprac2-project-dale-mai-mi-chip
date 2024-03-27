@@ -1,48 +1,38 @@
-"use client";
-
 import { useSession } from "next-auth/react";
 import { useAppSelector } from "@/redux/store";
 import { ReservationItems } from "../../interface";
-import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { removeReservation } from "@/redux/feature/bookSlice";
 
 export default function BookingList() {
   const hospitalItems = useAppSelector((state) => state.bookSlice.bookItems);
   const { data: session } = useSession();
   const name = session?.user.name;
-  const role = session?.user.role;
+  const dispatch = useDispatch<AppDispatch>();
+
   return (
-    <div className="text-black">
-      {hospitalItems.map((bookingItem: ReservationItems) => (
-        <div
-          className="bg-slate-200 rounded px-5 py-5 my-2 mx-5 flex flex-row gap-[50vw]"
-          key={bookingItem.name}
-        >
-          <div className="mt-10">
-            <div className="text-xl text-black">{name}</div>
-            <div className="text-xl text-black">{bookingItem.bookingDate}</div>
-            <div className="text-sm text-black">
-              {bookingItem.bookingLocation}
+    <div className="text-white">
+      {hospitalItems.map((bookingItem: ReservationItems, index: number) => (
+        <div className="flex mt-5 gap-10" key={index}>
+          <div className="text-lg">{index + 1} .</div>
+          <div className="flex flex-col items-start">
+            <div className="rounded text-start" key={bookingItem.name}>
+              <div className="text-lg">{name}</div>
+              <div className="text-xs">{bookingItem.bookingDate}</div>
+              <div className="text-xs">{bookingItem.bookingLocation}</div>
             </div>
           </div>
-
-          <div className="flex items-center ">
-            {(hospitalItems.length <= 3 && role === "user") ||
-            role === "admin" ? (
-              <Link href={"/reservation"}>
-                <button className="p-5 bg-green-700  rounded-3xl text-black">
-                  Add more Reservation
-                </button>
-              </Link>
-            ) : (
-              <button
-                className="p-5 bg-grey-700 rounded-3xl text-black"
-                onClick={() => {
-                  alert("Too many Reservation");
-                }}
-              >
-                Add more Reservation
-              </button>
-            )}
+          <div className="ml-auto items-center flex">
+            <button
+              className="px-4 py-2 rounded-3xl bg-yellow-400 hover:bg-orange-500 shadow-sm text-black"
+              type="submit"
+              onClick={() => {
+                dispatch(removeReservation(bookingItem));
+              }}
+            >
+              Delete
+            </button>
           </div>
         </div>
       ))}

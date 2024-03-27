@@ -21,5 +21,5 @@ export interface ReservationItems {
   name : string,
   bookingDate : string,
   bookingLocation : string
-
+  
 }

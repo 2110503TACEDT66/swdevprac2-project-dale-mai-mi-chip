@@ -6,7 +6,10 @@ export default function About() {
           <div className="text-6xl font-extrabold mt-5 ">About US</div>
         </div>
         <div className="px-[15vh] bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh] items-start justify-center ">
-          <div className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full" />
+          <div
+            className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
+            style={{ backgroundImage: "/img/anda.jpg" }}
+          />
           <div className="text-3xl p-3 text-white z-50">
             Varinthorn Chatburapachai ( Anda )
           </div>
@@ -15,7 +18,10 @@ export default function About() {
           </div>
         </div>
         <div className="px-[15vh] items-start justify-center bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh]">
-          <div className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full" />
+          <div
+            className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
+            style={{ backgroundImage: "/img/model.jpg" }}
+          />
           <div className="text-3xl p-3 text-white">
             Panisara kanjanachotkamol ( Model )
           </div>
@@ -24,7 +30,10 @@ export default function About() {
           </div>
         </div>
         <div className="px-[15vh] items-start justify-center bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh] ">
-          <div className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full" />
+          <div
+            className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
+            style={{ backgroundImage: "/img/anda.jpg" }}
+          />
           <div className="text-3xl p-3 text-white">
             Thawaree Khanjai ( Kaning )
           </div>
@@ -34,7 +43,7 @@ export default function About() {
         </div>
       </div>
       <div className="flex justify-center items-center text-black text-2xl font-bold text-5xl py-20 ">
-        GitHub :{" "}
+        GitHub :{"    "}
         <a
           href="https://github.com/2110503TACEDT66/swdevprac2-project-dale-mai-mi-chip"
           className="font-light text-xl underline"

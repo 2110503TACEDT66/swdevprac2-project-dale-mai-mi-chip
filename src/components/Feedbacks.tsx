@@ -19,15 +19,15 @@ export default async function FeedBacks() {
       <div className="bg-black w-[55%] h-[25vh] absolute rounded-[5vh] top-[420vh] left-[10vw] text-center text-white flex flex-col pt-10">
         <div className="text-6xl font-extrabold">CUSTOMER FEEDBACKS</div>
       </div>
-      <div className=" grid grid-cols-3 gap-20 p-10 ">
+      <div className=" grid grid-cols-3 gap-10">
         {allFeedBacks.map((massageShop) => (
           <Card
             key={massageShop.name}
-            className="flex flex-col items-center gap-[10px] border-none w-[18vw] h-[45vh] text-center "
+            className="flex flex-col items-center gap-[10px] border-none w-[18vw] h-[45vh] text-left "
           >
             <img src={massageShop.path} />
-            <div className="font-bold">{massageShop.name}</div>
-            <div className="">{massageShop.description}</div>
+            <div className="font-bold ">{massageShop.name}</div>
+            <div className="text-xs">{massageShop.description}</div>
           </Card>
         ))}
       </div>
