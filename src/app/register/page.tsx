@@ -60,7 +60,7 @@ export default function Register() {
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black"
+              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black mr-10"
               required
             />
           </div>
@@ -75,7 +75,7 @@ export default function Register() {
               type="tel"
               id="tel"
               name="tel"
-              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black"
+              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black mr-10"
               required
               onChange={(e) => setTel(e.target.value)}
             />
@@ -91,7 +91,7 @@ export default function Register() {
               type="email"
               id="email"
               name="email"
-              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black"
+              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black mr-10"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -107,32 +107,28 @@ export default function Register() {
               type="password"
               id="password"
               name="password"
-              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black"
+              className="w-full p-2 rounded-full border border-white bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-black mr-10"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          <div
-            className="flex items-center justify-center ml-20
-          "
-          >
+          <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="inline-flex px-5 py-1 rounded-full bg-white hover:bg-grey text-black"
-            >
-              Register
+              className="inline-flex px-5 py-1 rounded-full bg-white hover:bg-gray-300 text-black text-center">
+                Register
             </button>
           </div>
         </form>
         <br></br>
         <p className="border-b border-white"></p>
-        <p className="text-white text-xs text-center mt-4">
-          Already have an account? |{" "}
+        <p className="text-white text-sm text-center mt-4">
+          Already have an account?  |  {"  "}
           <Link href={"/api/auth/signin"}>
             <button
               type="submit"
-              className="inline-flex px-2 py-1 rounded-full bg-white hover:bg-grey text-black"
+              className="inline-flex px-2 py-1 rounded-full bg-white hover:bg-gray-300 text-black"
             >
               Log-in
             </button>

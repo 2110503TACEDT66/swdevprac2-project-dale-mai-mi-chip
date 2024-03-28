@@ -43,7 +43,7 @@ export default function About() {
           <div
             className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
             style={{
-              backgroundImage: "url('/img/model.jpg')",
+              backgroundImage: "url('/img/kaning.jpg')",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover", // This property ensures the image covers the entire background
               backgroundPosition: "top",
