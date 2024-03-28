@@ -1,8 +1,8 @@
-export default async function getMassageShop(id: string, token: string) {
+export default async function deleteMassageShop(id: string, token: string) {
   const response = await fetch(
     `https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/massageShops/${id}`,
     {
-      method: "GET",
+      method: "DELETE",
       headers: {
         authorization: `Bearer ${token}`,
       },

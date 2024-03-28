@@ -3,12 +3,17 @@ export default function About() {
     <div className=" py-10  px-[20vh]">
       <div className="flex flex-col gap-5 text-center pt-[15vh] z-50">
         <div className="bg-black w-[40%] h-[20vh] absolute rounded-[5vh] z-0 right-[20vh] top-[687vh] text-center text-white flex flex-col pt-6">
-          <div className="text-6xl font-extrabold mt-5 ">About US</div>
+          <div className="text-6xl font-extrabold ">About US</div>
         </div>
         <div className="px-[15vh] bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh] items-start justify-center ">
           <div
             className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
-            style={{ backgroundImage: "/img/anda.jpg" }}
+            style={{
+              backgroundImage: "url('/img/anda.png')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover", // This property ensures the image covers the entire background
+              backgroundPosition: "top",
+            }}
           />
           <div className="text-3xl p-3 text-white z-50">
             Varinthorn Chatburapachai ( Anda )
@@ -20,9 +25,14 @@ export default function About() {
         <div className="px-[15vh] items-start justify-center bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh]">
           <div
             className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
-            style={{ backgroundImage: "/img/model.jpg" }}
+            style={{
+              backgroundImage: "url('/img/model.jpg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover", // This property ensures the image covers the entire background
+              backgroundPosition: "top",
+            }}
           />
-          <div className="text-3xl p-3 text-white">
+          <div className="text-3xl p-3 text-white" id="aboutus">
             Panisara kanjanachotkamol ( Model )
           </div>
           <div className="text-xl text-white font-extralight p-3">
@@ -32,7 +42,12 @@ export default function About() {
         <div className="px-[15vh] items-start justify-center bg-black  flex flex-col h-[20vh] bg-black text-white rounded-[6vh] ">
           <div
             className="absolute text-4xl p-3 text-white bg-white w-[20vh] h-[20vh] left-[5vw] rounded-full"
-            style={{ backgroundImage: "/img/anda.jpg" }}
+            style={{
+              backgroundImage: "url('/img/model.jpg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover", // This property ensures the image covers the entire background
+              backgroundPosition: "top",
+            }}
           />
           <div className="text-3xl p-3 text-white">
             Thawaree Khanjai ( Kaning )

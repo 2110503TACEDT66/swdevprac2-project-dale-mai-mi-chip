@@ -1,6 +1,6 @@
-export default async function getMassageShop(id: string, token: string) {
+export default async function getAllReservations(token: string) {
   const response = await fetch(
-    `https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/massageShops/${id}`,
+    `https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/reservations`,
     {
       method: "GET",
       headers: {

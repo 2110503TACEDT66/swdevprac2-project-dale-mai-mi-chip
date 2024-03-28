@@ -52,7 +52,7 @@ export default function Navbar() {
               </button>
             </Link>
           ) : (
-            <Link href={"/api/auth/signin"}>
+            <Link href={"/register"}>
               <button className="mr-5 bg-black text-white px-5 py-2 rounded-3xl">
                 Book NOW
               </button>

@@ -1,4 +1,8 @@
-export default async function getUserProfile(token: string) {
+import { UserProfileResponse } from "../../interface";
+
+export default async function getUserProfile(
+  token: string
+): Promise<UserProfileResponse> {
   const response = await fetch(
     "https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/auth/me",
     {

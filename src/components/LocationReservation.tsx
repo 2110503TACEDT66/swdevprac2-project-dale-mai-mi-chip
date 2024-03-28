@@ -1,6 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Select, MenuItem } from "@mui/material";
+import { useSession } from "next-auth/react";
+import getMassageShops from "@/lib/getMassageShops";
+import { MassageShop, UserProfile } from "../../interface";
+import getUserProfile from "@/lib/getUserProfile";
 
 export default function LocationReserve({
   onLocationChange,
@@ -8,11 +12,34 @@ export default function LocationReserve({
   onLocationChange: Function;
 }) {
   const [location, setLocation] = useState<string>("");
+  const [userProfile, setUserProfile] = useState<null | UserProfile>(null);
+  const [massageShops, setMassageShops] = useState<MassageShop[]>([]);
+  const session = useSession();
+
+  useEffect(() => {
+    if (!session || !session.data) return;
+
+    const fetchMassageShops = async () => {
+      try {
+        const shops = await getMassageShops(session.data.user.token);
+        const profile = await getUserProfile(session.data.user.token);
+
+        setUserProfile(profile.data);
+        setMassageShops(shops.data);
+
+        console.log(massageShops);
+      } catch (error) {
+        console.error("Error fetching massage shops:", error);
+      }
+    };
+
+    fetchMassageShops();
+  }, [session]);
 
   return (
     <div
       className="bg-slate-100 rounded-lg space-x-5 
-      w-fit px-10 py-5 flex flex-row justify-center mt-2"
+      w-[100%] px-10 py-5 flex flex-row justify-center mt-2"
     >
       <Select
         variant="standard"
@@ -25,11 +52,11 @@ export default function LocationReserve({
         }}
         className="h-[2em] w-[200px]"
       >
-        <MenuItem value="KristenHarley">Kristen Harley</MenuItem>
-        <MenuItem value="GarryHahn">Garry Hahn</MenuItem>
-        <MenuItem value="SalvadorDickinson">Salvador Dickinson</MenuItem>
-        <MenuItem value="MayHilpertJr.shop">May Hilpert Jr.</MenuItem>
-        <MenuItem value="FredrickKonopelski">Fredrick Konopelski</MenuItem>
+        {massageShops.map((shop: MassageShop) => (
+          <MenuItem key={shop.name} value={shop.name}>
+            {shop.name}
+          </MenuItem>
+        ))}
       </Select>
     </div>
   );

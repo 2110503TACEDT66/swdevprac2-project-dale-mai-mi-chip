@@ -14,13 +14,35 @@ export default function BookingList() {
   return (
     <div className="text-white">
       {hospitalItems.map((bookingItem: ReservationItems, index: number) => (
-        <div className="flex mt-5 gap-10" key={index}>
-          <div className="text-lg">{index + 1} .</div>
+        <div className="flex mt-5 gap-10 mb-10" key={index}>
+          <div className="text-lg">{index + 1}.</div>
           <div className="flex flex-col items-start">
             <div className="rounded text-start" key={bookingItem.name}>
-              <div className="text-lg">{name}</div>
-              <div className="text-xs">{bookingItem.bookingDate}</div>
-              <div className="text-xs">{bookingItem.bookingLocation}</div>
+              <div className="text-sm">
+                {" "}
+                name : <span className="text-sm text-grey-700">{name}</span>
+              </div>
+              <div className="text-sm">
+                hospital :{" "}
+                <span className="text-gray-400">
+                  {bookingItem.hospitalName}
+                </span>
+              </div>
+              <div className="text-sm">
+                address :{" "}
+                <span className="text-gray-400">{bookingItem.address}</span>
+              </div>
+              <div className="text-sm">
+                {" "}
+                date :
+                <span className="text-gray-400">{bookingItem.bookingDate}</span>
+              </div>
+              <div className="text-sm">
+                time : <span className="text-gray-400">{bookingItem.time}</span>
+              </div>
+              <div className="text-sm">
+                tel : <span className="text-gray-400">{bookingItem.tel}</span>
+              </div>
             </div>
           </div>
           <div className="ml-auto items-center flex">
