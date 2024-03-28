@@ -14,6 +14,7 @@ export interface MassageShopResponse
 }
 
 export interface MassageShop {
+  _id: string,
   name : string,
 address : string,
 tel: string,
@@ -32,6 +33,7 @@ export interface HospitalJson {
 }
 
 export interface ReservationItems {
+  _id : string,
   name : string,
   hospitalName : string,
   address : string,
@@ -43,7 +45,13 @@ export interface ReservationItems {
 export interface AddReservationResponse {
   "success": boolean,
   "count": number,
-  "data": AddReservation[]
+  "data": AddReservation[] 
+}
+
+export interface AddReservationResponseOne {
+  "success": boolean,
+  "count": number,
+  "data": AddReservation
 }
 export interface AddReservation {
   "resDate": string,
@@ -52,6 +60,29 @@ export interface AddReservation {
         "_id": string,
         "__v": number
 }
+
+export interface AllReservation {
+  "success": boolean,
+  "count": number,
+  "data": OneReservation[]
+}
+
+export interface OneReservation {
+  "_id": string,
+  "resDate": string,
+  "user": string,
+  "massageShop": {
+      "_id": string,
+      "name": string,
+      "address": string,
+      "tel": string,
+      "opentime": string,
+      "closetime": string,
+      "id": string,
+  },
+  "__v": number
+}
+
 
 
 export interface UserProfileResponse {
@@ -66,4 +97,10 @@ export interface UserProfile {
   "email": string,
   "role": string,
   "__v": number
+}
+
+export interface JWT {
+  "id": string,
+  "iat": string,
+  "exp": string,
 }

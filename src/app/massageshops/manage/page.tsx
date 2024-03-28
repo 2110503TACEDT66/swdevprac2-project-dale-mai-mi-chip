@@ -39,17 +39,17 @@ export default async function DashBoardPage() {
   const role = session.user.role;
 
   return (
-    <main className="p-10 items-center justify-center bg-gradient-to-b from-customOrangeStart to-customOrangeEnd h-[100vh]">
+    <main className="p-10 items-center justify-center bg-gradient-to-b from-subPageStart to-subPageEnd  h-[100vh]">
       <div className="text-7xl font-bold mr-20 p-5 text-black text-end">
-        Add MassgeShop
+        ADD MASSAGE SHOP
       </div>
       {role === "admin" ? (
         <div className="flex flex-row items-center justify-center bg-black rounded-[10vh] mx-[20vw] gap-[2vw] mt-5 py-20">
           <form action={addMassageShop} className="flex flex-col">
             <div className="">
-              <div className="flex items-center gap-10">
+              <div className="flex items-center gap-5">
                 <label
-                  className="w-[10vw] block text-grey-700 text-end"
+                  className="w-[10vw] block text-grey-700 text-end text-white"
                   htmlFor="name"
                 >
                   name :
@@ -58,12 +58,12 @@ export default async function DashBoardPage() {
                   type="text"
                   id="name"
                   name="name"
-                  className="p-2 rounded-full flex-grow bg-transparent border border-white text-white"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black pl-8"
                 />
               </div>
-              <div className="flex items-center gap-10 mt-5">
+              <div className="flex items-center gap-5 mt-5">
                 <label
-                  className="w-[10vw] block text-grey-700 text-end"
+                  className="w-[10vw] block text-grey-700 text-end text-white"
                   htmlFor="address"
                 >
                   address :
@@ -72,12 +72,12 @@ export default async function DashBoardPage() {
                   type="text"
                   id="address"
                   name="address"
-                  className="p-2 rounded-full flex-grow bg-transparent border border-white text-white"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black"
                 />
               </div>
-              <div className="flex items-center gap-10 mt-5">
+              <div className="flex items-center gap-5 mt-5">
                 <label
-                  className="w-[10vw] block text-grey-700 text-end"
+                  className="w-[10vw] block text-grey-700 text-end text-white"
                   htmlFor="tel"
                 >
                   tel :
@@ -86,12 +86,12 @@ export default async function DashBoardPage() {
                   type="text"
                   id="tel"
                   name="tel"
-                  className="p-2 rounded-full flex-grow bg-transparent border border-white text-white"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black"
                 />
               </div>
-              <div className="flex items-center gap-10 mt-5">
+              <div className="flex items-center gap-5 mt-5">
                 <label
-                  className="w-[10vw] block text-grey-700 text-end"
+                  className="w-[10vw] block text-grey-700 text-end text-white"
                   htmlFor="opentime"
                 >
                   open time :
@@ -100,12 +100,12 @@ export default async function DashBoardPage() {
                   type="text"
                   id="opentime"
                   name="opentime"
-                  className="p-2 rounded-full flex-grow bg-transparent border border-white text-white"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black"
                 />
               </div>
-              <div className="flex items-center gap-10 mt-5">
+              <div className="flex items-center gap-5 mt-5">
                 <label
-                  className="w-[10vw] block text-grey-700 text-end"
+                  className="w-[10vw] block text-grey-700 text-end text-white"
                   htmlFor="closetime"
                 >
                   close time :
@@ -114,16 +114,16 @@ export default async function DashBoardPage() {
                   type="text"
                   id="closetime"
                   name="closetime"
-                  className="p-2 rounded-full flex-grow bg-transparent border border-white text-white"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black"
                 />
               </div>
             </div>
             <button
-              className="bg-green-500 p-5 w-[10vw] flex justify-center items-center ml-20 mt-10"
+              className="hover:bg-orange-500 rounded-full px-2 py-2 auto flex justify-center items-center mr-5 mt-10 bg-orange-400"
               type="submit"
             >
               {" "}
-              Submit{" "}
+              Add massage shop{" "}
             </button>
           </form>
         </div>

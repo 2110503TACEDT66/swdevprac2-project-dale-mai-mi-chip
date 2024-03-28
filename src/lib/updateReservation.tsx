@@ -1,12 +1,18 @@
-export default async function deleteMassageShop(id: string, token: string) {
-  console.log({ id, token });
+export default async function updateMassageShop(
+  id: string,
+  name: string,
+  token: string
+) {
   const response = await fetch(
     `https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/massageShops/${id}`,
     {
-      method: "DELETE",
+      method: "PUT",
       headers: {
         authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify({
+        name: name,
+      }),
     }
   );
 

@@ -1,11 +1,11 @@
-import { AddReservationResponse } from "../../interface";
+import { AddReservationResponseOne } from "../../interface";
 
 export default async function addReservationBackend(
   token: string,
   hospitalId: string,
   userId: string,
   day: string
-): Promise<AddReservationResponse> {
+): Promise<AddReservationResponseOne> {
   const response = await fetch(
     `https://presentation-day-1-dale-mai-mi-chip.vercel.app/api/v1/massageshops/${hospitalId}/reservations`,
     {

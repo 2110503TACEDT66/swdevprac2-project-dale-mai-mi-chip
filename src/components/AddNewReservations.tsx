@@ -15,6 +15,7 @@ import addReservationBackend from "@/lib/addReservationBackend";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import Link from "next/link";
 
 export default function AddNewReservations() {
   const hospitalItems = useAppSelector((state) => state.bookSlice.bookItems);
@@ -25,6 +26,7 @@ export default function AddNewReservations() {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [mid, setMid] = useState("");
+  const [rid, setRid] = useState("");
   const [role, setRole] = useState("");
   const [tel, setTel] = useState("");
   const [time, setTime] = useState<Dayjs | null>(dayjs("2022-04-17T15:30"));
@@ -44,6 +46,7 @@ export default function AddNewReservations() {
 
     // Call your backend API with the combinedDateTime
     const user = await addReservationBackend(token, mid, id, combinedDateTime);
+    setRid(user.data._id);
 
     if (!user) alert("Please Enter All Field");
   };
@@ -77,6 +80,7 @@ export default function AddNewReservations() {
     }
     if (bookingDate && bookingLocation) {
       const item: ReservationItems = {
+        _id: mid,
         name: name,
         tel: tel,
         hospitalName: bookingLocation,
@@ -226,10 +230,20 @@ export default function AddNewReservations() {
             </LocalizationProvider>
           </div>
 
-          <div className="w-[100%] flex items-center justify-center mt-12">
+          <div className="w-[100%] flex items-center justify-center mt-12 font-bold gap-10">
+            <Link href={"/massageshops"}>
+              <button
+                className="px-4 py-2 rounded-3xl bg-white hover:bg-orange-500
+     shadow-sm text-black"
+                type="submit"
+              >
+                View all shops
+              </button>
+            </Link>
+
             {(hospitalItems.length <= 3 && role === "user") ||
             role === "admin" ? (
-              <div className=" text-center pb-3 ">
+              <div className=" text-center ">
                 <button
                   className=" px-4 py-2 rounded-3xl bg-yellow-400 hover:bg-orange-500 
          shadow-sm text-black"
