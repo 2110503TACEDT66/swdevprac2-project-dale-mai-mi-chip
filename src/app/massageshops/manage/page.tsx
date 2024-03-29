@@ -58,7 +58,7 @@ export default async function DashBoardPage() {
                   type="text"
                   id="name"
                   name="name"
-                  className="p-2 rounded-full flex-grow bg-white border border-white text-black pl-8"
+                  className="p-2 rounded-full flex-grow bg-white border border-white text-black w-15"
                 />
               </div>
               <div className="flex items-center gap-5 mt-5">

@@ -26,13 +26,15 @@ export default function Navbar() {
             key="home"
             onClick={(event) => handleClick(event, "#home")}
           >
-            <Image
-              src={"/img/home.png"}
-              alt="Home Icon"
-              width={0}
-              height={0}
-              className="w-8 ml-5"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/img/home.png"}
+                alt="Home Icon"
+                width={0}
+                height={0}
+                className="w-8 ml-5"
+              />
+            </Link>
           </a>
           {navContents.map((e) => (
             <a

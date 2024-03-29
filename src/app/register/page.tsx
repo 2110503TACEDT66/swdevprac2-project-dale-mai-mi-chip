@@ -20,6 +20,7 @@ export default function Register() {
     console.log({ name, tel, email, password });
 
     if (!user) alert("Please Enter All Field");
+    alert("Finish Register Please Go to login Page");
     setName("");
     setTel("");
     setEmail("");
@@ -116,15 +117,16 @@ export default function Register() {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="inline-flex px-5 py-1 rounded-full bg-white hover:bg-gray-300 text-black text-center">
-                Register
+              className="inline-flex px-5 py-1 rounded-full bg-white hover:bg-gray-300 text-black text-center"
+            >
+              Register
             </button>
           </div>
         </form>
         <br></br>
         <p className="border-b border-white"></p>
         <p className="text-white text-sm text-center mt-4">
-          Already have an account?  |  {"  "}
+          Already have an account? | {"  "}
           <Link href={"/api/auth/signin"}>
             <button
               type="submit"

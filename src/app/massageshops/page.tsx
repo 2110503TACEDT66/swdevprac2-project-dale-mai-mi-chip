@@ -54,7 +54,7 @@ export default function MassageShop() {
     setIsDelete(!isDelete);
 
     try {
-      await updateMassageShop(id, name, token);
+      // await updateMassageShop(id, name, token);
     } catch (error) {
       console.log(error);
     } finally {

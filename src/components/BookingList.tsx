@@ -1,7 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import { useAppSelector } from "@/redux/store";
-import { JWT, ReservationItems } from "../../interface";
+import { JWT } from "../../interface";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { useState, useEffect } from "react";
@@ -12,6 +11,7 @@ import getAllReservations from "@/lib/getAllReservations";
 import { AllReservation } from "../../interface";
 import { OneReservation } from "../../interface";
 import { jwtDecode } from "jwt-decode";
+import updateReservation from "@/lib/updateReservation";
 
 export default function BookingList() {
   const session = useSession();
@@ -33,32 +33,30 @@ export default function BookingList() {
     const role = await getUserProfile(token);
     setReservations(hospitalItems);
     setRole(role.data.role);
-    console.log("Mass : ", reservations);
-
-    // setIsDelete(!isDelete);
   };
 
   useEffect(() => {
-    console.log("Hello");
     fetchData();
-    console.log("Mass : ", reservations);
   }, [fetchData]);
-  console.log("Hello");
 
-  // if (!massageShops) return null;
+  const handleUpdate = async (id: string, token: string) => {
+    const date = window.prompt("Please enter a date ");
 
-  const handleClick = async (id: string) => {
-    try {
-      await deleteReservation(id, token);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      // console.log(" Now Delete ");
-      // setIsDelete(!isDelete);
-      window.location.reload();
+    if (date) {
+      if (date !== null && date !== "") {
+        if (date) {
+          console.log("id : ", id);
+          const sucess = await updateReservation(id, date, token);
+
+          console.log(JSON.stringify(sucess));
+          fetchData();
+          if (sucess) alert("update success");
+        }
+      } else {
+        console.error("Please enter a date.");
+      }
     }
   };
-  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div className="text-white w-fit">
@@ -106,10 +104,10 @@ export default function BookingList() {
                     className="px-4 py-2 rounded-3xl w-[10vw] bg-blue-400 hover:bg-blue-500 shadow-sm text-black"
                     type="submit"
                     onClick={() => {
-                      console.log(bookingItem);
+                      handleUpdate(bookingItem._id, session?.data.user.token);
                     }}
                   >
-                    Edit
+                    Edit Date
                   </button>
                   <button
                     className="px-4 py-2 rounded-3xl bg-yellow-400 hover:bg-orange-500 shadow-sm text-black"

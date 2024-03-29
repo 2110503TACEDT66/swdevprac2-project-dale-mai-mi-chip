@@ -22,7 +22,7 @@ export default async function addReservationBackend(
   );
 
   if (!response.ok) {
-    throw new Error("Failed to Sign in");
+    alert("Too many reservations!!");
   }
 
   return await response.json();

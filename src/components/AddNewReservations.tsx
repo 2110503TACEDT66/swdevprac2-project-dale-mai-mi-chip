@@ -31,10 +31,15 @@ export default function AddNewReservations() {
   const [tel, setTel] = useState("");
   const [time, setTime] = useState<Dayjs | null>(dayjs("2022-04-17T15:30"));
   const [massageShops, setMassageShops] = useState<any>({ data: [] });
+  const [click, setClick] = useState(0);
 
   const session = useSession();
+  const userReservationsCount = hospitalItems.filter(
+    (item) => item.name === name
+  ).length;
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent default form submission behavior
+
     if (!bookingDate || !time) return; // Check if bookingDate and time are set
 
     // Format bookingDate and time
@@ -45,6 +50,10 @@ export default function AddNewReservations() {
     const combinedDateTime = `${formattedDate}T${formattedTime}`;
 
     // Call your backend API with the combinedDateTime
+    if (role === "user" && userReservationsCount >= 3) {
+      alert("You can only book up to three massage shops.");
+      return;
+    }
     const user = await addReservationBackend(token, mid, id, combinedDateTime);
     setRid(user.data._id);
 
@@ -62,7 +71,7 @@ export default function AddNewReservations() {
 
         const { _id, name, tel, email, role, __v } = profile.data;
 
-        setName(name);
+        setName(_id);
         setRole(role);
         setId(_id);
         if (!name) return null;
@@ -70,6 +79,8 @@ export default function AddNewReservations() {
         console.error("Error fetching massage shops:", error);
       }
     };
+    console.log("count : ");
+    console.log(userReservationsCount);
 
     fetchMassageShops();
   }, [session]);
@@ -213,7 +224,7 @@ export default function AddNewReservations() {
         </div>
         {/* Col 4 */}
         <div className="">
-          <div className="pt-5 "> time reservation :</div>
+          <div className="pt-5 "> time reservation : </div>
           <div
             className="bg-slate-100 rounded-lg space-x-5 
       w-[100%] px-10 py-5 flex flex-row justify-center mt-2 h-[12vh] "
@@ -233,7 +244,7 @@ export default function AddNewReservations() {
           <div className="w-[100%] flex items-center justify-center mt-12 font-bold gap-10">
             <Link href={"/massageshops"}>
               <button
-                className="px-4 py-2 rounded-3xl bg-white hover:bg-orange-500
+                className="px-4 py-2 rounded-3xl bg-white hover:bg-orange-50
      shadow-sm text-black"
                 type="submit"
               >
@@ -241,8 +252,7 @@ export default function AddNewReservations() {
               </button>
             </Link>
 
-            {(hospitalItems.length <= 3 && role === "user") ||
-            role === "admin" ? (
+            {userReservationsCount < 3 || role === "admin" ? (
               <div className=" text-center ">
                 <button
                   className=" px-4 py-2 rounded-3xl bg-yellow-400 hover:bg-orange-500 
