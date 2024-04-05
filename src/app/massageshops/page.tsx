@@ -1,16 +1,14 @@
 "use client";
 import getMassageShops from "@/lib/getMassageShops";
-import { MassageShop } from "../../../interface";
+import type { MassageShop } from "../../../interface";
 import deleteMassageShop from "@/lib/deleteMassageShop";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import getUserProfile from "@/lib/getUserProfile";
-import updateMassageShop from "@/lib/updateReservation";
 import Link from "next/link";
 
 export default function MassageShop() {
   const [massageShops, setMassageShops] = useState<MassageShop[]>();
-  const [newName, setNewName] = useState<string>("");
   const [isDelete, setIsDelete] = useState<boolean>(false);
   const [role, setRole] = useState("");
   const session = useSession();
