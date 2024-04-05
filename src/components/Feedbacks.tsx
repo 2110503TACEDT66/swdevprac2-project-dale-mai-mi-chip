@@ -8,11 +8,6 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Image from "next/image";
 
 export default async function FeedBacks() {
-  const session = await getServerSession(authOptions);
-  if (!session || !session.user.token) return null;
-
-  const massageShops = await getMassageShops(session.user.token);
-
   return (
     <div className="mt-[30vh] mx-[10vw] 5xl bg-black flex text-white h-[120vh] justify-center items-center rounded-[5vh] px-20">
       <div className="mt-[-150vh]" id="feedbacks"></div>

@@ -7,6 +7,8 @@ import Link from "next/link";
 export default function Navbar() {
   const { data: session } = useSession();
 
+  console.log("session :", session);
+
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     path: string

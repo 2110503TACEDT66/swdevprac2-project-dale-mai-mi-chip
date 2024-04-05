@@ -23,6 +23,9 @@ export default function MassageShop() {
     // setIsDelete(!isDelete);
 
     const shop = await getMassageShops(token);
+    console.log(".............");
+    console.log(shop);
+    console.log(".............");
     const role = await getUserProfile(token);
     setMassageShops(shop.data);
     setRole(role.data.role);
@@ -33,7 +36,7 @@ export default function MassageShop() {
   useEffect(() => {
     fetchData();
     console.log("Mass : ", massageShops);
-  }, []);
+  }, [session]);
 
   // if (!massageShops) return null;
 
